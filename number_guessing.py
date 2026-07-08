@@ -1,36 +1,38 @@
 import random
 
 
-def number_guessing():
+def main():
+
     print("\n\n---Welcome to the Number Guessing Game!---")
     print("I'm thinking of a number between 1 and 100.")
-    print("You have 5 chances to guess the correct number.")
+    print("You have 5 chances to guess the correct number.")        
 
-    print("\n\nChoose difficulty level:\n1. Easy(10 chances)\n2. Medium(5 chances)\n3. Hard(3 chances)\n")
+    def number_guessing():
 
-    difficulty = int(input("Enter your choice: ").strip())
+        print("\n\nChoose difficulty level:\n1. Easy(10 chances)\n2. Medium(5 chances)\n3. Hard(3 chances)\n")
 
-    if difficulty == 1:
-        print("Great! You have selected the Easy difficulty level")
-        print("Let's start the game!")
-        chances = 10
-    elif difficulty == 2:
-        print("Great! You have selected the Medium difficulty level")
-        print("Let's start the game!")
-        chances = 5
-    elif difficulty == 3:
-        print("Great! You have selected the Hard difficulty level")
-        print("Let's start the game!")
-        chances = 3
-    else:
-        print("Please choose a valid difficulty")
+        difficulty = int(input("Enter your choice: ").strip())
 
-    random_number = random.randint(1,100)
+        if difficulty == 1:
+            print("Great! You have selected the Easy difficulty level")
+            print("Let's start the game!")
+            chances = 10
+        elif difficulty == 2:
+            print("Great! You have selected the Medium difficulty level")
+            print("Let's start the game!")
+            chances = 5
+        elif difficulty == 3:
+            print("Great! You have selected the Hard difficulty level")
+            print("Let's start the game!")
+            chances = 3
+        else:
+            print("Choose a valid difficulty")
 
-    def guess_chances():
+        random_number = random.randint(1,100)
+
+    
 
         attempts = 0
-
         while attempts < chances:
             attempts += 1
             user_guess = int(input("Enter your guess: ").strip())
@@ -46,16 +48,19 @@ def number_guessing():
                     print(f"Incorrect! The number is less than {user_guess}.")
                 elif user_guess < random_number:
                     print(f"Incorrect! The number is greater than {user_guess}.")
-    
-    guess_chances()
-
-    play_again = input("want to play again (Y | N)").lower().strip()
-
-    if play_again == "y":
-        guess_chances()
-    elif play_again == "n":
-        print("")
-
         
+        return
+    
+    number_guessing()
 
-number_guessing()
+    while True:
+
+        play_again = input("want to play again (Y | N): ").lower().strip()
+
+        if play_again == "y":
+            number_guessing()
+        elif play_again == "n":
+            return 
+
+if __name__ == "__main__":
+    main()
