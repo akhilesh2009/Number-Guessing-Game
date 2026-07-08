@@ -27,22 +27,27 @@ def number_guessing():
 
     random_number = random.randint(1,100)
 
-    attempts = 0
+    def guess_chances():
 
-    while attempts < chances:
-        attempts += 1
-        user_guess = int(input("Enter your guess: "))
-        if user_guess == random_number:
-            print(f"Congratulations! You guessed the correct number in {attempts} attempts.")
-            break
-        elif user_guess > 100:
-            print("The Number is b/w 1 & 100")
-        else:
-            if user_guess > random_number:
-                print(f"Incorrect! The number is less than {user_guess}.")
-            elif user_guess < random_number:
-                print(f"Incorrect! The number is greater than {user_guess}.")
-        
+        attempts = 0
+
+        while attempts < chances:
+            attempts += 1
+            user_guess = int(input("Enter your guess: "))
+            if user_guess == random_number:
+                print(f"Congratulations! You guessed the correct number in {attempts} attempts.")
+                break
+            elif user_guess > 100:
+                print("The Number is b/w 1 & 100")
+            elif attempts == chances:
+                print(f"You run out of chances the number was {random_number}")
+            else:
+                if user_guess > random_number:
+                    print(f"Incorrect! The number is less than {user_guess}.")
+                elif user_guess < random_number:
+                    print(f"Incorrect! The number is greater than {user_guess}.")
+    
+    guess_chances()
         
 
 number_guessing()
