@@ -8,7 +8,7 @@ def number_guessing():
 
     print("\n\nChoose difficulty level:\n1. Easy(10 chances)\n2. Medium(5 chances)\n3. Hard(3 chances)\n")
 
-    difficulty = int(input("Enter your choice: ").split())
+    difficulty = int(input("Enter your choice: ").strip())
 
     if difficulty == 1:
         print("Great! You have selected the Easy difficulty level")
@@ -33,7 +33,7 @@ def number_guessing():
 
         while attempts < chances:
             attempts += 1
-            user_guess = int(input("Enter your guess: ").split())
+            user_guess = int(input("Enter your guess: ").strip())
             if user_guess == random_number:
                 print(f"Congratulations! You guessed the correct number in {attempts} attempts.")
                 break
@@ -49,9 +49,13 @@ def number_guessing():
     
     guess_chances()
 
-    play_again = input("want to play again (Y | N)").lower().split()
+    play_again = input("want to play again (Y | N)").lower().strip()
 
-    if play
+    if play_again == "y":
+        guess_chances()
+    elif play_again == "n":
+        print("")
+
         
 
 number_guessing()
