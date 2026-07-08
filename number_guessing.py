@@ -27,6 +27,7 @@ def main():
             chances = 3
         else:
             print("Choose a valid difficulty")
+            return
 
         random_number = random.randint(1,100)
 
@@ -39,8 +40,9 @@ def main():
             if user_guess == random_number:
                 print(f"Congratulations! You guessed the correct number in {attempts} attempts.")
                 break
-            elif user_guess > 100:
+            elif not 1 <= user_guess <= 100:
                 print("The Number is b/w 1 & 100")
+                continue
             elif attempts == chances:
                 print(f"You run out of chances the number was {random_number}")
             else:
